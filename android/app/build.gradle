@@ -96,4 +96,5 @@ flutter {
 dependencies {
     // Required for flutter_tts on Android
     implementation 'com.google.android.gms:play-services-mlkit-text-recognition:19.0.0'
+    implementation 'com.google.android.play:core:1.10.3'
 }

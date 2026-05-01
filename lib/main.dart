@@ -153,8 +153,14 @@ class _AppWrapperState extends State<AppWrapper> {
   Future<void> _bootstrap() async {
     try {
       await Future.wait([
-        TtsService.instance.reinit(), // reinit so voice detection runs fresh
-        SpeechService.instance.init(),
+        _runStartupStep(
+          TtsService.instance.reinit(),
+          label: 'TTS init',
+        ),
+        _runStartupStep(
+          SpeechService.instance.init(),
+          label: 'Speech init',
+        ),
       ]);
 
       if (!mounted) return;
@@ -166,6 +172,17 @@ class _AppWrapperState extends State<AppWrapper> {
       debugPrint('Bootstrap error: $e');
     }
     if (mounted) setState(() => _ready = true);
+  }
+
+  Future<void> _runStartupStep(
+    Future<dynamic> future, {
+    required String label,
+  }) async {
+    try {
+      await future;
+    } catch (e) {
+      debugPrint('$label skipped during bootstrap: $e');
+    }
   }
 
   @override

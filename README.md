@@ -72,6 +72,20 @@ The application focuses on foundational Urdu skills:
 3. Run app:
    - `flutter run`
 
+## Team Setup
+
+If you are cloning this project for the first time, follow [setup.md](setup.md) for the full teammate workflow.
+
+Recommended order:
+
+1. Clone the repo from GitHub.
+2. Open the project in your editor.
+3. Run `flutter doctor` and fix toolchain issues.
+4. Run `flutter pub get`.
+5. Run `flutter analyze` and `flutter test`.
+6. Run `flutter run`.
+7. Only then start adding new features.
+
 ## Quality Checks
 
 - Static analysis:
@@ -95,6 +109,7 @@ Before a teammate runs the app, they should:
 3. Open the project folder and run `flutter pub get`.
 4. Connect an Android device or start an emulator.
 5. Run `flutter run` to launch the app.
+6. On a real phone, accept USB debugging and microphone prompts when they appear.
 
 Recommended checks before sharing changes with the team:
 
